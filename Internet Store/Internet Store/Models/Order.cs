@@ -10,8 +10,7 @@ namespace Internet_Store.Models
     {
         public Order(ShoppingBusket shoppingBusket)
         {
-            Guid id = Guid.NewGuid();
-            Id = Convert.ToInt32(id);
+            Id = new Random().Next(0, 1000000);
             Busket = shoppingBusket;
         }
 

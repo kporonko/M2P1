@@ -9,21 +9,40 @@ namespace Internet_Store.Services
 {
     internal class OrderService
     {
-        public void FormOrder(ShoppingBusket shoppingBusket)
+        private static OrderService instance = null;
+
+        private OrderService()
         {
-            Order order = new Order(shoppingBusket);
-            Console.WriteLine("Order is formed");
         }
 
-        public void WriteOrder(Order order)
+        public static OrderService Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new OrderService();
+                }
+
+                return instance;
+            }
+        }
+
+        public void FormOrder(Order order)
+        {
+            Console.WriteLine("\nOrder is formed\n");
+            WriteOrder(order);
+        }
+
+        private void WriteOrder(Order order)
         {
             Console.WriteLine($"Your order №{order.Id} :\n");
             for (int i = 0; i < order.Busket.Products.Length; i++)
             {
-                Console.WriteLine($"1) {order.Busket.Products[i].Name} - {order.Busket.Products[i].Sum}$");
+                Console.WriteLine($"{i + 1}) {order.Busket.Products[i].Name} - {order.Busket.Products[i].Sum}$");
             }
 
-            Console.WriteLine($"Overall price: {order.Sum}");
+            Console.WriteLine($"\nOverall price: {order.Sum}\n");
         }
     }
 }

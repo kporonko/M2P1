@@ -9,20 +9,39 @@ namespace Internet_Store.Services
 {
     internal class ShoppingBusketService
     {
-        public static void CreateABusket(int[] prodId)
+        private static ShoppingBusketService instance = null;
+
+        public ShoppingBusketService()
+        {
+        }
+
+        public static ShoppingBusketService Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new ShoppingBusketService();
+                }
+
+                return instance;
+            }
+        }
+
+        public void CreateABusket(int[] prodId)
         {
             var busket = ShoppingBusket.Instance;
             AddInBusket(prodId, busket);
         }
 
-        public static void AddInBusket(int[] prodId, ShoppingBusket shoppingBusket)
+        public void AddInBusket(int[] prodId, ShoppingBusket shoppingBusket)
         {
             for (int i = 0; i < prodId.Length; i++)
             {
-                shoppingBusket.Products[i] = Starter.Assortment[prodId[i]];
+                shoppingBusket.Products[i] = AssortimentService.Assortment[prodId[i]];
             }
 
-            Console.WriteLine("Products added");
+            Console.WriteLine("\nProducts added to busket\n");
         }
     }
 }
