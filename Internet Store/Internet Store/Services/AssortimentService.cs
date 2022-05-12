@@ -54,7 +54,6 @@ namespace Internet_Store.Services
         /// </summary>
         public void WriteAssortiment()
         {
-            FillTheAssortment();
             Console.WriteLine("Our assortiment:\n");
             for (int i = 0; i < Assortment.Length; i++)
             {

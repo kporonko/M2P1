@@ -38,14 +38,13 @@ namespace Internet_Store.Services
         public void FormOrder(Order order)
         {
             Console.WriteLine("\nOrder is formed\n");
-            WriteOrder(order);
         }
 
         /// <summary>
         /// Method that writes an order to the console.
         /// </summary>
         /// <param name="order">Order we need to write to the console.</param>
-        private void WriteOrder(Order order)
+        public void WriteOrder(Order order)
         {
             Console.WriteLine($"Your order №{order.Id} :\n");
             for (int i = 0; i < order.Busket.Products.Length; i++)

@@ -13,16 +13,19 @@ namespace Internet_Store
         public static void Run()
         {
             var assortiment = AssortimentService.Instance;
+            assortiment.FillTheAssortment();
             assortiment.WriteAssortiment();
             var interaction = UserInteractionService.Instance;
             int[] prodId = interaction.ProductsChoice();
             var shoppingBusketService = ShoppingBusketService.Instance;
-            shoppingBusketService.CreateABusket(prodId);
+            var shoppingbusket = shoppingBusketService.CreateABusket();
+            shoppingBusketService.AddInBusket(prodId, shoppingbusket);
             if (interaction.AskUser())
             {
                 Order order = new Order(ShoppingBusket.Instance);
                 var orderService = OrderService.Instance;
                 orderService.FormOrder(order);
+                orderService.WriteOrder(order);
                 Console.WriteLine();
             }
         }

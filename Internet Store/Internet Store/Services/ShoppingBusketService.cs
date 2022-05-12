@@ -34,11 +34,10 @@ namespace Internet_Store.Services
         /// <summary>
         /// Method that creates a busket and adds all the chosen products in it.
         /// </summary>
-        /// <param name="prodId">Array of indexes of products.</param>
-        public void CreateABusket(int[] prodId)
+        /// <returns>Shopping busket.</returns>
+        public ShoppingBusket CreateABusket()
         {
-            var busket = ShoppingBusket.Instance;
-            AddInBusket(prodId, busket);
+            return ShoppingBusket.Instance;
         }
 
         /// <summary>
@@ -46,7 +45,7 @@ namespace Internet_Store.Services
         /// </summary>
         /// <param name="prodId">Array of indexes of products.</param>
         /// <param name="shoppingBusket">Currently chosen products in the busket.</param>
-        private void AddInBusket(int[] prodId, ShoppingBusket shoppingBusket)
+        public void AddInBusket(int[] prodId, ShoppingBusket shoppingBusket)
         {
             for (int i = 0; i < prodId.Length; i++)
             {

@@ -43,7 +43,16 @@ namespace Internet_Store.Services
             {
                 while (temp < 1 || temp > 10)
                 {
-                    temp = Convert.ToInt32(Console.ReadLine());
+                    try
+                    {
+                        temp = Convert.ToInt32(Console.ReadLine());
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Incorrect input");
+                        Environment.Exit(1);
+                    }
+
                     if (temp < 1 || temp > 10)
                     {
                         Console.WriteLine("Try again");
