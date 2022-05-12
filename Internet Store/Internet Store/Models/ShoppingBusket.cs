@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Internet_Store.Models
 {
+    /// <summary>
+    /// The singleton pattern logic in a class of shopping busket.
+    /// </summary>
     public sealed class ShoppingBusket
     {
         private static ShoppingBusket instance = null;
@@ -27,6 +30,12 @@ namespace Internet_Store.Models
             }
         }
 
+        /// <summary>
+        /// Gets current products in the shopping busket.
+        /// </summary>
+        /// <value>
+        /// Array of products which user fills later.
+        /// </value>
         public Product[] Products { get; } = new Product[5];
     }
 }

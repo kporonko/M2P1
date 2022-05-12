@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Internet_Store.Services
 {
+    /// <summary>
+    /// The singleton pattern logic in a class of user interaction service.
+    /// </summary>
     internal sealed class UserInteractionService
     {
         private static UserInteractionService instance = null;
@@ -27,6 +30,10 @@ namespace Internet_Store.Services
             }
         }
 
+        /// <summary>
+        /// Method that let user to choose thwe products from the assortment.
+        /// </summary>
+        /// <returns>The array of indexes of chosen products.</returns>
         public int[] ProductsChoice()
         {
             int[] prodId = new int[5];
@@ -50,6 +57,10 @@ namespace Internet_Store.Services
             return prodId;
         }
 
+        /// <summary>
+        /// Method that asks user if he wants to form an order.
+        /// </summary>
+        /// <returns>User`s decision to form the order or no.</returns>
         public bool AskUser()
         {
             Console.WriteLine("Do you want to form an order ? Yes/no");

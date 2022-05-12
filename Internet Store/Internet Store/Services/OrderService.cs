@@ -7,6 +7,9 @@ using Internet_Store.Models;
 
 namespace Internet_Store.Services
 {
+    /// <summary>
+    /// The singleton pattern logic in a class of order service.
+    /// </summary>
     internal class OrderService
     {
         private static OrderService instance = null;
@@ -28,12 +31,20 @@ namespace Internet_Store.Services
             }
         }
 
+        /// <summary>
+        /// Method that forms an order and writes it to the console.
+        /// </summary>
+        /// <param name="order">Order we need to form.</param>
         public void FormOrder(Order order)
         {
             Console.WriteLine("\nOrder is formed\n");
             WriteOrder(order);
         }
 
+        /// <summary>
+        /// Method that writes an order to the console.
+        /// </summary>
+        /// <param name="order">Order we need to write to the console.</param>
         private void WriteOrder(Order order)
         {
             Console.WriteLine($"Your order №{order.Id} :\n");

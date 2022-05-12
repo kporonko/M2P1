@@ -7,6 +7,9 @@ using Internet_Store.Models;
 
 namespace Internet_Store.Services
 {
+    /// <summary>
+    /// The singleton pattern logic in a class of shopping busket service.
+    /// </summary>
     internal class ShoppingBusketService
     {
         private static ShoppingBusketService instance = null;
@@ -28,13 +31,22 @@ namespace Internet_Store.Services
             }
         }
 
+        /// <summary>
+        /// Method that creates a busket and adds all the chosen products in it.
+        /// </summary>
+        /// <param name="prodId">Array of indexes of products.</param>
         public void CreateABusket(int[] prodId)
         {
             var busket = ShoppingBusket.Instance;
             AddInBusket(prodId, busket);
         }
 
-        public void AddInBusket(int[] prodId, ShoppingBusket shoppingBusket)
+        /// <summary>
+        /// Method that adds the products to the busket.
+        /// </summary>
+        /// <param name="prodId">Array of indexes of products.</param>
+        /// <param name="shoppingBusket">Currently chosen products in the busket.</param>
+        private void AddInBusket(int[] prodId, ShoppingBusket shoppingBusket)
         {
             for (int i = 0; i < prodId.Length; i++)
             {
