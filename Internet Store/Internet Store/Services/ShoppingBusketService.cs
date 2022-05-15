@@ -52,7 +52,8 @@ namespace Internet_Store.Services
                 shoppingBusket.Products[i] = AssortimentService.Assortment[prodId[i]];
             }
 
-            Console.WriteLine("\nProducts added to busket\n");
+            ConsoleService consServ = ConsoleService.Instance;
+            consServ.ProductsAddedToBusketMesssage();
         }
     }
 }

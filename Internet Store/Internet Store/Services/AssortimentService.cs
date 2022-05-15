@@ -48,19 +48,5 @@ namespace Internet_Store.Services
             Assortment[8] = new Product(9, 1850, "Gucci suit");
             Assortment[9] = new Product(10, 250, "Gucci hat");
         }
-
-        /// <summary>
-        /// Method that writes assortiment on the console.
-        /// </summary>
-        public void WriteAssortiment()
-        {
-            Console.WriteLine("Our assortiment:\n");
-            for (int i = 0; i < Assortment.Length; i++)
-            {
-                Console.WriteLine($"{Assortment[i].Id}) {Assortment[i].Name} - {Assortment[i].Sum}$");
-            }
-
-            Console.WriteLine();
-        }
     }
 }
