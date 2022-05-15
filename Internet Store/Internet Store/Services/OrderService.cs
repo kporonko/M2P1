@@ -37,8 +37,22 @@ namespace Internet_Store.Services
         /// <param name="order">Order we need to form.</param>
         public void FormOrder(Order order)
         {
-            var consoleService = ConsoleService.Instance;
-            consoleService.OrderFormedMessage();
+            Console.WriteLine("\nOrder is formed\n");
+        }
+
+        /// <summary>
+        /// Method that writes an order to the console.
+        /// </summary>
+        /// <param name="order">Order we need to write to the console.</param>
+        public void WriteOrder(Order order)
+        {
+            Console.WriteLine($"Your order №{order.Id} :\n");
+            for (int i = 0; i < order.Busket.Products.Length; i++)
+            {
+                Console.WriteLine($"{i + 1}) {order.Busket.Products[i].Name} - {order.Busket.Products[i].Sum}$");
+            }
+
+            Console.WriteLine($"\nOverall price: {order.Sum}\n");
         }
     }
 }

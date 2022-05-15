@@ -14,8 +14,7 @@ namespace Internet_Store
         {
             var assortiment = AssortimentService.Instance;
             assortiment.FillTheAssortment();
-            var consoleService = ConsoleService.Instance;
-            consoleService.WriteAssortiment(AssortimentService.Assortment);
+            assortiment.WriteAssortiment();
             var interaction = UserInteractionService.Instance;
             int[] prodId = interaction.ProductsChoice();
             var shoppingBusketService = ShoppingBusketService.Instance;
@@ -26,7 +25,7 @@ namespace Internet_Store
                 Order order = new Order(ShoppingBusket.Instance);
                 var orderService = OrderService.Instance;
                 orderService.FormOrder(order);
-                consoleService.WriteOrder(order);
+                orderService.WriteOrder(order);
                 Console.WriteLine();
             }
         }
